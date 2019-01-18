@@ -1,0 +1,39 @@
+<!-- container -->
+<div class="container">
+ 
+    <!-- show page header -->
+<!--    <div class="row">
+        <div class="col-md-12">
+            <div class='page-header'><h4>{{title}}</h4></div>
+        </div>
+    </div>
+--> 
+    <!-- Show this view if "show_read_products_html" property of AppComponent is true. -->
+    <app-reactivos
+     *ngIf="show_read_products_html"
+    (show_create_product_event)="showCreateProduct($event)"
+    (show_read_one_product_event)="showReadOneProduct($event)"
+    (show_update_product_event)="showUpdateProduct($event)">
+    </app-reactivos> 
+
+    <app-crear-reactivo
+    *ngIf="show_create_product_html"
+    (show_read_products_event)="showReadProducts($event)"
+    >
+    </app-crear-reactivo>
+
+    <app-read-one-reactivo
+    *ngIf="show_read_one_product_html"
+    (show_read_products_event)="showReadProducts($event)"
+    [reactivo_id]="reactivo_id">
+    </app-read-one-reactivo>
+
+    <app-actualizar-reactivo
+    *ngIf="show_update_product_html"
+    [reactivo_id]="reactivo_id"
+    (show_read_products_event)="showReadProducts($event)">
+    </app-actualizar-reactivo>
+    
+ 
+</div>
+<!-- /container -->

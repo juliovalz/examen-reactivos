@@ -1,0 +1,52 @@
+<div class="row m-b-18px">
+    <div class="col-md-9">
+        <!-- button to create new product -->
+        <a (click)="createProduct()" class='btn btn-primary pull-right'>
+            <span class='glyphicon glyphicon-plus'></span> Nuevo reactivo
+        </a>
+    </div>
+</div>
+ 
+<div class="row">
+    <div class="col-md-8.5">
+ 
+        <!-- HTML table for our list of product records -->
+        <table class='table table-hover table-responsive table-bordered'>
+ 
+            <tr>
+                <th>Area</th>
+                <th>Nivel Educativo</th>
+                <th>Eje tematico</th>
+                <th>Tema</th>
+                <th>Subtema</th>
+                <th>Actions</th>
+            </tr>
+ 
+            <!-- Use *ngFor directive to loop throught our list of products. -->
+            <tr *ngFor="let reactivo of reactivos">
+                <td>{{reactivo.area}}</td>
+                <td>{{reactivo.nivel_educativo}}</td>
+                <td>{{reactivo.eje_tematico}}</td>
+                <td>{{reactivo.tema}}</td>
+                <td>{{reactivo.subtema}}</td>
+                <td>
+                    <!-- read one product button -->
+                    <a (click)="readOneProduct(reactivo._id)" class='btn btn-primary m-r-5px'>
+                        <span class='glyphicon glyphicon-eye-open'></span> Ver
+                    </a>
+ 
+                    <!-- edit product button -->
+                    <a (click)="updateProduct(reactivo._id)" class='btn btn-info m-r-5px'>
+                        <span class='glyphicon glyphicon-edit'></span> Edit
+                    </a>
+ 
+                    <!-- delete product button -->
+                    <a (click)="deleteProduct(reactivo._id)" class='btn btn-danger m-r-5px'>
+                        <span class='glyphicon glyphicon-remove'></span> Delete
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+

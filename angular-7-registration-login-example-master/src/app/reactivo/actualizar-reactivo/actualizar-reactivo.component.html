@@ -1,0 +1,112 @@
+<div class="row m-b-18px">
+    <div class="col-md-9">
+        <a (click)="readProducts()" class='btn btn-primary pull-right'>
+            <span class='glyphicon glyphicon-list'></span> Ver Reactivos
+        </a>
+    </div>
+</div>
+ 
+<div class="row">
+<div class="col-md-9">
+ 
+<!-- HTML form for creating a product -->
+<form [formGroup]="update_product_form" (ngSubmit)="updateProduct()">
+<table class='table table-hover table-responsive table-bordered'>
+ 
+     <tr>
+        <td>Area</td>
+        <td>
+            <!-- Bind this input field to our 'angular form field' using formControlName -->
+            <input
+                formControlName="area"
+                name="area" type="text"
+                class="form-control" required />
+ 
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="update_product_form.get('area').touched && update_product_form.get('area').hasError('required')"
+                class="alert alert-danger">
+                Area is required.
+            </div>
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>Nivel nivel_educativo</td>
+        <td>
+            <input
+                formControlName="nivel_educativo"
+                type="text" name="nivel_educativo"
+                class="form-control" required />
+ 
+            <!-- show this error if the field is 'empty' and 'touched' -->
+            <div
+                *ngIf="update_product_form.get('nivel_educativo').touched && update_product_form.get('nivel_educativo').hasError('required')"
+                class="alert alert-danger">
+            Nivel Educativo is required.
+            </div>
+        </td>
+    </tr>
+ 
+    <tr>
+        <td>Eje tematico</td>
+        <td>
+            <textarea
+                formControlName="eje_tematico"
+                name="eje_tematico" class="form-control" required></textarea>
+ 
+                <!-- show this error if the field is 'empty' and 'touched' -->
+                <div
+                    *ngIf="update_product_form.get('eje_tematico').touched && update_product_form.get('eje_tematico').hasError('required')"
+                    class="alert alert-danger">
+                    Description is required.
+                </div>
+        </td>
+    </tr>
+ 
+  <tr>
+        <td>Tema</td>
+        <td>
+            <textarea
+                formControlName="tema"
+                name="tema" class="form-control" required></textarea>
+ 
+                <!-- show this error if the field is 'empty' and 'touched' -->
+                <div
+                    *ngIf="update_product_form.get('tema').touched && update_product_form.get('tema').hasError('required')"
+                    class="alert alert-danger">
+                    Tema is required.
+                </div>
+        </td>
+    </tr>
+     <tr>
+        <td>Subtema</td>
+        <td>
+            <textarea
+                formControlName="subtema"
+                name="subtema" class="form-control" required></textarea>
+ 
+                <!-- show this error if the field is 'empty' and 'touched' -->
+                <div
+                    *ngIf="update_product_form.get('subtema').touched && update_product_form.get('subtema').hasError('required')"
+                    class="alert alert-danger">
+                    Description is required.
+                </div>
+        </td>
+    </tr>
+  
+    <tr>
+        <td></td>
+        <td>
+            <!-- Submit buttons is [disabled] if form is invalid. -->
+            <button class="btn btn-primary" type="submit" [disabled]="update_product_form.invalid">
+                <span class="glyphicon glyphicon-edit"></span> Update
+            </button>
+        </td>
+    </tr>
+ 
+</table>
+</form>
+ 
+</div>
+</div>
